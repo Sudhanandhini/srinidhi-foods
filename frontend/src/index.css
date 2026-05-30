@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green: #77B81E;
+  --dark: #002A33;
+  --header-bg: #ECEC95;
+}
+
+* { box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; color: #333; }
+
+.hero-bg {
+  background: linear-gradient(135deg, #002A33 0%, #004a5c 60%, #77B81E22 100%);
+}
+
+.section-underline::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #77B81E;
+  margin-top: 8px;
+}
+
+.product-card:hover img { transform: scale(1.05); }
+.product-card img { transition: transform 0.3s ease; }
+
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: #77B81E;
+  transition: width 0.3s;
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+.tab-btn.active {
+  background: #77B81E;
+  color: white;
+}
