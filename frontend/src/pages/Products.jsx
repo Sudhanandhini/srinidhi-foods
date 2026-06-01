@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageBanner from '../components/PageBanner'
-import { PRODUCTS } from '../data/products'
+import { useProducts } from '../context/ProductContext'
 
 const TABS = [
-  { key: 'basmati', label: 'Basmati Rice' },
-  { key: 'nonBasmati', label: 'Non-Basmati Rice' },
-  { key: 'millets', label: 'Millets' },
+  { key: 'Basmati Rice', label: 'Basmati Rice' },
+  { key: 'Non-Basmati Rice', label: 'Non-Basmati Rice' },
+  { key: 'Millets', label: 'Millets' },
 ]
 
 export default function Products() {
-  const [tab, setTab] = useState('basmati')
-  const products = PRODUCTS[tab]
+  const { products: allProducts } = useProducts()
+  const [tab, setTab] = useState('Basmati Rice')
+  const products = allProducts.filter(p => p.category === tab)
 
   return (
     <div>
@@ -41,8 +42,8 @@ export default function Products() {
                 className="product-card bg-white rounded-sm shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow group block"
               >
                 <div
-                  className="h-52 overflow-hidden flex items-center justify-center relative"
-                  style={{ background: p.bg }}
+                  className="h-auto overflow-hidden flex items-center justify-center relative py-6"
+                  // style={{ background: p.bg }}
                 >
                   <img
                     src={p.images[0]}

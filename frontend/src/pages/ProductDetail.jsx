@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import PageBanner from '../components/PageBanner'
-import { getProductBySlug } from '../data/products'
+import { useProducts } from '../context/ProductContext'
 
 export default function ProductDetail() {
   const { slug } = useParams()
-  const product = getProductBySlug(slug)
+  const { getBySlug } = useProducts()
+  const product = getBySlug(slug)
   const [activeImg, setActiveImg] = useState(0)
 
   if (!product) {
@@ -63,12 +64,12 @@ export default function ProductDetail() {
             </div>
 
             {/* Thumbnails */}
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               {images.map((img, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
-                  className={`rounded-sm overflow-hidden w-20 h-20 flex-shrink-0 border-2 transition-colors ${
+                  className={`overflow-hidden w-20 h-20 flex-shrink-0 border-2 transition-colors ${
                     activeImg === i ? 'border-[#77B81E]' : 'border-gray-200 hover:border-gray-400'
                   }`}
                   style={{ background: product.bg }}
@@ -76,7 +77,7 @@ export default function ProductDetail() {
                   <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-contain" />
                 </button>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Right: Product info */}
@@ -102,7 +103,7 @@ export default function ProductDetail() {
               </span>
             </div>
 
-            <div className="flex gap-4 flex-wrap">
+            {/* <div className="flex gap-4 flex-wrap">
               <Link
                 to="/contact"
                 className="bg-[#77B81E] hover:bg-[#5a8e14] text-white font-bold py-3 px-8 rounded-sm transition-colors text-sm"
@@ -115,7 +116,7 @@ export default function ProductDetail() {
               >
                 View All Products
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

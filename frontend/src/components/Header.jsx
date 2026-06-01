@@ -17,7 +17,7 @@ export default function Header() {
     <header className="sticky top-0 z-50">
       {/* Top bar */}
       <div className="w-full bg-[#ECEC95]">
-      <div className="max-w-7xl mx-auto bg-[#ECEC95] px-6 py-4 flex justify-between items-center text-sm">
+      <div className="max-w-7xl mx-auto bg-[#ECEC95] px-6 py-4 flex justify-between items-center text-md">
         <span className="text-[#002A33] font-semibold tracking-wide">Welcome to Srinidhi Foods</span>
         <div className="flex gap-4 text-[#002A33]">
           <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaFacebook /></a>

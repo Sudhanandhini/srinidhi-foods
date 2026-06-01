@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
+import bannerBg from '../assets/images/breadcrumb-bg2-1.jpg'
 
-export default function PageBanner({ title, breadcrumb, shopCrumb }) {
+export default function PageBanner({ title, breadcrumb, shopCrumb, shopLabel, shopHref }) {
   return (
     <div
       className="relative h-36 flex items-center px-10"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,42,51,0.7), rgba(0,42,51,0.5)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&q=80')`,
+        backgroundImage: `linear-gradient(rgba(0,42,51,0.6), rgba(0,42,51,0.4)), url(${bannerBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -17,7 +18,9 @@ export default function PageBanner({ title, breadcrumb, shopCrumb }) {
           {shopCrumb && (
             <>
               <span className="mx-2">|</span>
-              <Link to="/products" className="hover:text-[#77B81E]">Shop</Link>
+              <Link to={shopHref || '/products'} className="hover:text-[#77B81E]">
+                {shopLabel || 'Shop'}
+              </Link>
             </>
           )}
           <span className="mx-2">|</span>

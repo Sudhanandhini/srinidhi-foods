@@ -4,7 +4,7 @@ import { FaLeaf, FaSeedling, FaAward, FaChevronLeft, FaChevronRight } from 'reac
 import ban1 from '../assets/images/ban1.jpg'
 import ban2 from '../assets/images/ban2.jpg'
 import ban3 from '../assets/images/ban3.jpg'
-import { PRODUCTS } from '../data/products'
+import { useProducts } from '../context/ProductContext'
 
 
 
@@ -13,6 +13,7 @@ import { PRODUCTS } from '../data/products'
 const SLIDES = [ban1, ban2, ban3]
 
 export default function Home() {
+  const { products: allProducts } = useProducts()
   const [tab, setTab] = useState('basmati')
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [slide, setSlide] = useState(0)
@@ -22,7 +23,8 @@ export default function Home() {
     return () => clearInterval(timer)
   }, [])
 
-  const tabProducts = tab === 'basmati' ? PRODUCTS.basmati : tab === 'nonBasmati' ? PRODUCTS.nonBasmati : PRODUCTS.millets
+  const CAT_MAP = { basmati: 'Basmati Rice', nonBasmati: 'Non-Basmati Rice', millets: 'Millets' }
+  const tabProducts = allProducts.filter(p => p.category === CAT_MAP[tab])
 
   return (
     <div>
