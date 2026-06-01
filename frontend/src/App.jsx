@@ -6,6 +6,8 @@ import About from './pages/About'
 import Products from './pages/Products'
 import Recipes from './pages/Recipes'
 import Contact from './pages/Contact'
+import ProductDetail from './pages/ProductDetail'
+import Dashboard from './pages/Dashboard'
 
 export default function App() {
   return (
@@ -17,8 +19,10 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/product/:slug" element={<ProductDetail />} />
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </main>
         <Footer />

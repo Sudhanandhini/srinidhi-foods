@@ -4,36 +4,13 @@ import { FaLeaf, FaSeedling, FaAward, FaChevronLeft, FaChevronRight } from 'reac
 import ban1 from '../assets/images/ban1.jpg'
 import ban2 from '../assets/images/ban2.jpg'
 import ban3 from '../assets/images/ban3.jpg'
+import { PRODUCTS } from '../data/products'
+
+
+
+
 
 const SLIDES = [ban1, ban2, ban3]
-
-const PRODUCTS = {
-  basmati: [
-    { name: 'Supreme Basmati Rice', weight: '1 Kg', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&q=80', bg: '#f0f4ff' },
-    { name: 'Essential Basmati Rice', weight: '1 Kg', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&q=80', bg: '#e8f5e9' },
-    { name: 'Dubar Basmati Rice', weight: '1 Kg', img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300&q=80', bg: '#e8f0fe' },
-    { name: 'Supreme Basmati Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&q=80', bg: '#fff3e0' },
-    { name: 'Essential Basmati Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&q=80', bg: '#e8f5e9' },
-    { name: 'Dubar Basmati Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300&q=80', bg: '#e8f0fe' },
-    { name: 'Kitchen Chef Dubar Basmati', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&q=80', bg: '#e3f2fd' },
-    { name: 'Kitchen Chef Select Basmati', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&q=80', bg: '#fff9c4' },
-    { name: 'Kitchen Chef Royal Basmati', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300&q=80', bg: '#fce4ec' },
-    { name: 'Naksha Basmati Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&q=80', bg: '#e8f5e9' },
-    { name: 'Golden Dynasty Basmati', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&q=80', bg: '#fff3e0' },
-  ],
-  nonBasmati: [
-    { name: 'Sona Masoori Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300&q=80', bg: '#e8f5e9' },
-    { name: 'Thanjavur Ponni Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&q=80', bg: '#fff3e0' },
-    { name: 'Idly Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&q=80', bg: '#e3f2fd' },
-    { name: 'Matta Rice', weight: '25 Kg', img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300&q=80', bg: '#fce4ec' },
-  ],
-  millets: [
-    { name: 'Pearl Millet (Bajra)', weight: '1 Kg', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&q=80', bg: '#f3e5f5' },
-    { name: 'Finger Millet (Ragi)', weight: '1 Kg', img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300&q=80', bg: '#e8f5e9' },
-    { name: 'Foxtail Millet', weight: '1 Kg', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&q=80', bg: '#fff9c4' },
-    { name: 'Sorghum (Jowar)', weight: '1 Kg', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&q=80', bg: '#fce4ec' },
-  ],
-}
 
 export default function Home() {
   const [tab, setTab] = useState('basmati')
@@ -136,16 +113,16 @@ export default function Home() {
           ))}
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-          {tabProducts.map((p, i) => (
-            <div key={i} className="product-card bg-white rounded-sm shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="h-44 overflow-hidden flex items-center justify-center" style={{ background: p.bg }}>
-                <img src={p.img} alt={p.name} className="h-full w-full object-cover" />
+          {tabProducts.map((p) => (
+            <Link key={p.slug} to={`/product/${p.slug}`} className="product-card bg-white rounded-sm shadow-sm overflow-hidden p-4 border border-gray-100 hover:shadow-md transition-shadow block">
+              <div className="h-auto overflow-hidden flex items-center justify-center">
+                <img src={p.images[0]} alt={p.name} className="h-full w-full object-cover pt-4" />
               </div>
-              <div className="p-3 text-center">
-                <span className="text-xs font-bold text-white bg-[#77B81E] px-2 py-0.5 rounded-sm">{p.weight}</span>
-                <p className="mt-2 text-xs font-semibold text-[#002A33] uppercase tracking-wide leading-tight">{p.name}</p>
+              <div className="p-6 text-center">
+                <span className="text-sm font-bold text-white bg-[#77B81E] px-2 py-0.5 rounded-sm">{p.weight}</span>
+                <p className="mt-4 text-md font-semibold text-[#002A33] uppercase tracking-wide leading-tight">{p.name}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

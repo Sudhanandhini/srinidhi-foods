@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function PageBanner({ title, breadcrumb }) {
+export default function PageBanner({ title, breadcrumb, shopCrumb }) {
   return (
     <div
       className="relative h-36 flex items-center px-10"
@@ -14,6 +14,12 @@ export default function PageBanner({ title, breadcrumb }) {
         <h1 className="text-white text-3xl font-heading font-semibold">{title}</h1>
         <nav className="text-sm text-white">
           <Link to="/" className="hover:text-[#77B81E]">Home</Link>
+          {shopCrumb && (
+            <>
+              <span className="mx-2">|</span>
+              <Link to="/products" className="hover:text-[#77B81E]">Shop</Link>
+            </>
+          )}
           <span className="mx-2">|</span>
           <span className="text-[#77B81E]">{breadcrumb || title}</span>
         </nav>
