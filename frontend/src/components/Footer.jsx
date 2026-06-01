@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa'
 import { useState } from 'react'
 
 export default function Footer() {
@@ -60,10 +60,22 @@ export default function Footer() {
           <div>
             <h4 className="section-underline text-[#002A33] font-bold text-lg mb-5 font-heading">Follow Us</h4>
             <div className="flex flex-col gap-3 text-sm">
-              {['Facebook', 'Twitter', 'Instagram', 'YouTube', 'LinkedIn'].map(s => (
-                <a key={s} href="#" className="flex items-center gap-2 text-gray-600 hover:text-[#77B81E] transition-colors font-medium">
-                  <span className="w-2 h-2 bg-[#77B81E] rounded-full"></span>
-                  {s}
+              {[
+                { label: 'Facebook',  icon: <FaFacebook className="text-lg" />,  href: 'https://www.facebook.com/srinidhifoodsindusland',  hover: 'hover:text-[#1877F2]' },
+                { label: 'Twitter',   icon: <FaTwitter className="text-lg" />,   href: 'https://x.com/SrinidhiFoods',   hover: 'hover:text-[#1DA1F2]' },
+                { label: 'Instagram', icon: <FaInstagram className="text-lg" />, href: 'https://www.instagram.com/srinidhi_foods/', hover: 'hover:text-[#E1306C]' },
+                { label: 'YouTube',   icon: <FaYoutube className="text-lg" />,   href: 'https://www.youtube.com/channel/UCDr8B85LBWBd8Qbh3EX8bDQ',   hover: 'hover:text-[#FF0000]' },
+                { label: 'LinkedIn',  icon: <FaLinkedin className="text-lg" />,  href: 'https://www.linkedin.com/company/srinidhi-foods/',  hover: 'hover:text-[#0A66C2]' },
+              ].map(s => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`flex items-center gap-3 text-gray-500 transition-colors font-medium ${s.hover}`}
+                >
+                  {s.icon}
+                  {s.label}
                 </a>
               ))}
             </div>

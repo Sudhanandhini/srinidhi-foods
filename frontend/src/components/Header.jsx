@@ -20,11 +20,11 @@ export default function Header() {
       <div className="max-w-7xl mx-auto bg-[#ECEC95] px-6 py-4 flex justify-between items-center text-md">
         <span className="text-[#002A33] font-semibold tracking-wide">Welcome to Srinidhi Foods</span>
         <div className="flex gap-4 text-[#002A33]">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaFacebook /></a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaTwitter /></a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaInstagram /></a>
-          <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaYoutube /></a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaLinkedin /></a>
+          <a href="https://www.facebook.com/srinidhifoodsindusland" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaFacebook /></a>
+          <a href="https://x.com/SrinidhiFoods" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaTwitter /></a>
+          <a href="https://www.instagram.com/srinidhi_foods/" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaInstagram /></a>
+          <a href="https://www.youtube.com/channel/UCDr8B85LBWBd8Qbh3EX8bDQ" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaYoutube /></a>
+          <a href="https://www.linkedin.com/company/srinidhi-foods/" target="_blank" rel="noreferrer" className="hover:text-[#77B81E] transition-colors"><FaLinkedin /></a>
         </div>
       </div>
       </div>

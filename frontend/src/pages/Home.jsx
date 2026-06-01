@@ -6,7 +6,12 @@ import ban2 from '../assets/images/ban2.jpg'
 import ban3 from '../assets/images/ban3.jpg'
 import { useProducts } from '../context/ProductContext'
 
-
+import img1 from '../assets/images/basmati.jpg'
+import img2 from '../assets/images/non-basmati.jpg'
+import img3 from '../assets/images/millets.jpg'
+import icon1 from '../assets/images/cereal-100x100.png'
+import icon2 from '../assets/images/wheat-1-100x100.png'
+import icon3 from '../assets/images/wheat-100x100.png'
 
 
 
@@ -130,7 +135,7 @@ export default function Home() {
       </section>
 
       {/* Free Sample Form */}
-      <section className="py-14 px-6 bg-white">
+      {/* <section className="py-14 px-6 bg-white">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1">
             <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Chef" className="rounded-lg shadow-xl" />
@@ -151,7 +156,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Category Cards */}
       <section className="py-14 px-6 bg-gray-50">
@@ -159,28 +164,44 @@ export default function Home() {
           {[
             {
               title: 'BASMATI RICE',
-              img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&q=80',
-              desc: 'Indian Basmati is a long grain aromatic rice grown at the Himalayan foothills of the Indian sub-continent for centuries, blessed with characteristic extra-long slender grains.',
-              icon: <FaLeaf className="text-3xl text-[#77B81E]" />,
+              img: img1,
+              icon: icon1,
+              desc: 'Indian Basmati is a long grain aromatic rice grown at the Himalayan foothills of the Indian sub-continent for centuries, blessed with characteristic extra-long slender grains that elongate at least twice the original size, giving a soft and fluffy texture upon cooking with delicious taste, superior aroma and distinct flavor, making it unique among other aromatic long-grain rice varieties.',
             },
             {
               title: 'NON BASMATI RICE',
-              img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500&q=80',
-              desc: 'Any Rice other than Basmati Rice is named as Non-Basmati Rice. India produces the maximum number of unique varieties of rice admired by food lovers for its taste, texture, flavor, and aroma.',
-              icon: <FaSeedling className="text-3xl text-[#77B81E]" />,
+              img: img2,
+              icon: icon2,
+              desc: 'Any Rice other than Basmati Rice is named as Non-Basmati Rice. India produces the maximum number of unique varieties of rice when compared to the whole world which are admired by food lovers for its taste, texture, flavor, and aroma. These variants have led to the creation of numerous delicious recipes and huge demand worldwide.',
             },
             {
               title: 'MILLETS',
-              img: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=500&q=80',
-              desc: 'The millets are considered to have been cultivated in India from pre-historic times. Their importance as an article of human food can be realised from the fact that about 36 million acres in India fall under cultivation of millets.',
-              icon: <FaAward className="text-3xl text-[#77B81E]" />,
+              img: img3,
+              icon: icon3,
+              desc: 'The millets are considered to have been cultivated in India from pre-historic times. Their importance as an article of human food can be realized from the fact that about 30 million acres in India fall under cultivation of millets. Millets are very high in their nutrition content. Millets are rich in B vitamins, calcium, iron, potassium, magnesium, zinc, also gluten-free and has low-GI.',
             },
           ].map((c, i) => (
-            <div key={i} className="text-center">
-              <img src={c.img} alt={c.title} className="w-full h-48 object-cover rounded-sm mb-5 shadow" />
-              <div className="flex justify-center mb-3">{c.icon}</div>
-              <h4 className="font-heading font-bold text-[#77B81E] mb-3">{c.title}</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">{c.desc}</p>
+            <div key={i} className="group text-center cursor-pointer">
+              {/* Image with overlapping icon circle */}
+              <div className="relative">
+                <img src={c.img} alt={c.title} className="w-full h-68 object-cover" />
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white group-hover:bg-[#77B81E] shadow-lg flex items-center justify-center transition-colors duration-300 z-10">
+                  <img
+                    src={c.icon}
+                    alt={c.title}
+                    className="w-12 h-12 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+                  />
+                </div>
+              </div>
+              {/* Card body */}
+              <div className="bg-white group-hover:bg-[#77B81E] px-5 pt-12 pb-8 shadow-sm transition-colors duration-300">
+                <h4 className="font-heading font-bold text-xl text-[#77B81E] group-hover:text-white mb-6 transition-colors duration-300">
+                  {c.title}
+                </h4>
+                <p className="text-gray-600 group-hover:text-white/90 text-md leading-relaxed transition-colors duration-300 mb-4">
+                  {c.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
